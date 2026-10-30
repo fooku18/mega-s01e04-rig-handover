@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-31
 ---
 
 # Morning digest
@@ -77,3 +78,21 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types: DigestRow and readNight signature | — | claude-code · opus-5.5 · medium | 2026-10-30 |
+| 2 | Run log reader | #1 | claude-code · opus-5.5 · medium | 2026-10-30 |
+| 3 | Digest page: GET /digest/:night | #1 (needs #2) | claude-code · sonnet-5.5 · medium | 2026-10-30 |
+| 4 | Digest JSON: GET /api/digest/:night | #1 (needs #2, #3) | claude-code · haiku-5.5 · medium | 2026-10-30 |
+| 5 | Board link to each night's digest | #1 (needs #2, #3) | claude-code · haiku-5.5 · medium | 2026-10-30 |
+| 6 | Route tests for page and JSON | #1 (needs #3, #4) | claude-code · haiku-5.5 · medium | 2026-10-30 |
+| 7 | Preview for review | #3 | claude-code · opus-5.5 · high | 2026-10-31 |
+| 8 | Clean up: take the marker off the preview | #7, review | claude-code · opus-5.5 · high | 2026-10-31 |
+
+Preview: https://fooku18.github.io/mega-s01e04-rig-handover/ (GitHub Pages, deployed by
+`.github/workflows/preview.yml`, never committed). #7 was first closed when the link was sent and
+reopened: the review was not in yet. Marker taken off on 2026-10-31 (banner reads "no marker set");
+the marked Pages artifact and the `LANE_MARKER` secret were deleted.
